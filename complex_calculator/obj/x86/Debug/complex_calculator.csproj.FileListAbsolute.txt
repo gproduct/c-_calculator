@@ -1,0 +1,14 @@
+C:\Users\silard.gal\AppData\Local\Temporary Projects\complex_calculator\bin\Debug\complex_calculator.exe
+C:\Users\silard.gal\AppData\Local\Temporary Projects\complex_calculator\bin\Debug\complex_calculator.pdb
+C:\Users\silard.gal\AppData\Local\Temporary Projects\complex_calculator\obj\x86\Debug\complex_calculator.Form1.resources
+C:\Users\silard.gal\AppData\Local\Temporary Projects\complex_calculator\obj\x86\Debug\complex_calculator.Properties.Resources.resources
+C:\Users\silard.gal\AppData\Local\Temporary Projects\complex_calculator\obj\x86\Debug\complex_calculator.csproj.GenerateResource.Cache
+C:\Users\silard.gal\AppData\Local\Temporary Projects\complex_calculator\obj\x86\Debug\complex_calculator.exe
+C:\Users\silard.gal\AppData\Local\Temporary Projects\complex_calculator\obj\x86\Debug\complex_calculator.pdb
+C:\Users\silard.gal\Desktop\complex_calculator\complex_calculator\obj\x86\Debug\complex_calculator.exe
+C:\Users\silard.gal\Desktop\complex_calculator\complex_calculator\obj\x86\Debug\complex_calculator.pdb
+C:\Users\silard.gal\Desktop\complex_calculator\complex_calculator\bin\Debug\complex_calculator.exe
+C:\Users\silard.gal\Desktop\complex_calculator\complex_calculator\bin\Debug\complex_calculator.pdb
+C:\Users\silard.gal\Desktop\complex_calculator\complex_calculator\obj\x86\Debug\complex_calculator.Form1.resources
+C:\Users\silard.gal\Desktop\complex_calculator\complex_calculator\obj\x86\Debug\complex_calculator.Properties.Resources.resources
+C:\Users\silard.gal\Desktop\complex_calculator\complex_calculator\obj\x86\Debug\complex_calculator.csproj.GenerateResource.Cache
