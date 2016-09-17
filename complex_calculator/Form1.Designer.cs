@@ -123,6 +123,7 @@
             this.multi.TabIndex = 9;
             this.multi.Text = "*";
             this.multi.UseVisualStyleBackColor = true;
+            this.multi.Click += new System.EventHandler(this.multi_Click);
             // 
             // divide
             // 

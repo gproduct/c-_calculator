@@ -19,6 +19,10 @@ namespace complex_calculator
         public Form1()
         {
             InitializeComponent();
+            box_a_re.Text = "5";
+            box_b_re.Text = "20";
+            box_a_im.Text = "15";
+            box_b_im.Text = "18";
             
         }
 
@@ -167,6 +171,94 @@ namespace complex_calculator
                     //works
                     case 3:
                         box_result.Text = Convert.ToString((_a_re - _b_re) + "+i" + (_a_im + _b_im));
+                        break;
+                    case 4:
+                        MessageBox.Show("The switch function went to case 4", "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+            }
+
+            private void multi_Click(object sender, EventArgs e)
+            {
+                string re, im;
+
+                
+                //making it easier for the eyes
+                int x1 = Convert.ToInt32(box_a_re.Text);//x1
+                int x2 = Convert.ToInt32(box_b_re.Text);//x2
+                int y1 = Convert.ToInt32(box_a_im.Text);//y1
+                int y2 = Convert.ToInt32(box_b_im.Text);//y2
+
+                //gets the methods
+                int method = get_methods();
+                switch (method)
+                {
+                    //++
+                    case 0:
+                        //(x1+y1i)*(x2+y2i)
+                        //Re: x1*x2 - y1*y2
+                        //Im: (x1*y2 + y1*x2)i
+                        re = Convert.ToString((x1 * x2) - (y1 * y2));
+                        im = Convert.ToString(((x1*y2) + (y1*x2)));
+                        if (Convert.ToInt32(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString(re + "+i" + im);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString(re + im + "i");
+                        }
+                        
+                        break;
+                    //--
+                    case 1:
+                        //(x1-y1i)*(x2-y2i)
+                        //Re: x1*x2 - y1*y2
+                        //Im: (-x1y2 - y1x2)i
+                        re = Convert.ToString((x1 * x2) - (y1 * y2));
+                        im = Convert.ToString(((-x1 * y2) - (y1 * x2)));
+                        if (Convert.ToInt32(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString(re + "+i" + im);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString(re + im + "i");
+                        }
+
+                        break;
+                    //-+
+                    case 2:
+                        //(x1-y1i)*(x2+y2i)
+                        //Re: x1*x2 + y1*y2
+                        //Im: (-x1y2 - y1x2)i
+                        re = Convert.ToString((x1 * x2) + (y1 * y2));
+                        im = Convert.ToString(((x1 * y2) - (y1 * x2)));
+                        if (Convert.ToInt32(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString(re + "+i" + im);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString(re + im + "i");
+                        }
+                        break;
+                    //+-
+                    case 3:
+                        //(x1+y1i)*(x2-y2i)
+                        //Re: x1*x2 - y1*y2
+                        //Im: (x1y2 + y1x2)i
+                        re = Convert.ToString((x1 * x2) - (y1 * y2));
+                        im = Convert.ToString(((x1 * y2) + (y1 * x2)));
+                        if (Convert.ToInt32(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString(re + "+i" + im);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString(re + im + "i");
+                        }
                         break;
                     case 4:
                         MessageBox.Show("The switch function went to case 4", "ERROR",
