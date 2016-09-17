@@ -81,6 +81,7 @@ namespace complex_calculator
                 int _a_im = Convert.ToInt32(box_a_im.Text);
                 int _b_im = Convert.ToInt32(box_b_im.Text);
 
+                //gets the methods
                 int method = get_methods();
                 switch (method)
                 {
@@ -91,10 +92,25 @@ namespace complex_calculator
                         box_result.Text = Convert.ToString((_a_re + _b_re) + "" + (-_a_im - _b_im) + "i" );
                         break;
                     case 2:
-                        box_result.Text = Convert.ToString((_a_re + _b_re) + "+i" + (-_a_im + _b_im));
+                        if ((-_a_im + _b_im) < 0)
+                        {
+                            box_result.Text = Convert.ToString((_a_re + _b_re) + "" + (-_a_im + _b_im) + "i");
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString((_a_re + _b_re) + "+i" + (-_a_im + _b_im));
+                        }
                         break;
                     case 3:
-                        box_result.Text = Convert.ToString((_a_re + _b_re) + "+i" + (_a_im - _b_im));
+                        //do check for -
+                        if ((_a_im - _b_im) < 0)
+                        {
+                            box_result.Text = Convert.ToString((_a_re + _b_re) + "" + (_a_im - _b_im) + "i");
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString((_a_re + _b_re) + "+i" + (_a_im - _b_im));
+                        }
                         break;
                     case 4:
                         MessageBox.Show("The switch function went to case 4", "ERROR",
@@ -102,6 +118,66 @@ namespace complex_calculator
                         break;
                 }
             }
+
+            //works
+            private void subs_Click(object sender, EventArgs e)
+            {
+                //making it easier for the eyes
+                int _a_re = Convert.ToInt32(box_a_re.Text);
+                int _b_re = Convert.ToInt32(box_b_re.Text);
+                int _a_im = Convert.ToInt32(box_a_im.Text);
+                int _b_im = Convert.ToInt32(box_b_im.Text);
+
+                //gets the methods
+                int method = get_methods();
+                switch (method)
+                {
+                    //works
+                    case 0:
+                        if ((_a_im - _b_im) < 0)
+                        {
+                            box_result.Text = Convert.ToString((_a_re - _b_re) + "" + (_a_im - _b_im) + "i");
+                        }else{
+                            box_result.Text = Convert.ToString((_a_re - _b_re) + "+i" + (_a_im - _b_im));
+                        }
+                        break;
+                    //works
+                    case 1:  
+                        if ((-_a_im + _b_im) > 0)
+                        {
+                            box_result.Text = Convert.ToString((_a_re - _b_re) + "+i" + (-_a_im + _b_im));
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString((_a_re - _b_re) + "" + (-_a_im + _b_im) + "i");
+                        }
+                        
+                        break;
+                    //works
+                    case 2:
+                        if ((-_a_im + _b_im) > 0)
+                        {
+                            box_result.Text = Convert.ToString((_a_re - _b_re) + "+i" + (-_a_im + _b_im));
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString((_a_re - _b_re) + "" + (-_a_im + _b_im) + "i");
+                        }       
+                        break;
+                    //works
+                    case 3:
+                        box_result.Text = Convert.ToString((_a_re - _b_re) + "+i" + (_a_im + _b_im));
+                        break;
+                    case 4:
+                        MessageBox.Show("The switch function went to case 4", "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+            }
+
+            
+
+
             //**************************************************************
     
 

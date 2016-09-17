@@ -113,6 +113,7 @@
             this.subs.TabIndex = 8;
             this.subs.Text = "-";
             this.subs.UseVisualStyleBackColor = true;
+            this.subs.Click += new System.EventHandler(this.subs_Click);
             // 
             // multi
             // 
