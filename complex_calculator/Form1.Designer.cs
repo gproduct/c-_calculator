@@ -133,6 +133,7 @@
             this.divide.TabIndex = 10;
             this.divide.Text = "/";
             this.divide.UseVisualStyleBackColor = true;
+            this.divide.Click += new System.EventHandler(this.divide_Click);
             // 
             // label3
             // 

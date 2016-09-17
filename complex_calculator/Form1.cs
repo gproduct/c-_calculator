@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+
 namespace complex_calculator
 {
     public partial class Form1 : Form
@@ -23,6 +24,9 @@ namespace complex_calculator
             box_b_re.Text = "20";
             box_a_im.Text = "15";
             box_b_im.Text = "18";
+
+            MessageBox.Show("https://github.com/gproduct/c-_calculator/", "GitHub code",
+            MessageBoxButtons.OK, MessageBoxIcon.None);
             
         }
 
@@ -183,7 +187,6 @@ namespace complex_calculator
             {
                 string re, im;
 
-                
                 //making it easier for the eyes
                 int x1 = Convert.ToInt32(box_a_re.Text);//x1
                 int x2 = Convert.ToInt32(box_b_re.Text);//x2
@@ -266,6 +269,96 @@ namespace complex_calculator
                         break;
                 }
             }
+
+            private void divide_Click(object sender, EventArgs e)
+            {
+                //Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) <- is used for making the decimal point only 3 characters
+
+                string re, im;
+
+                //making it easier for the eyes
+                double x1 = Convert.ToDouble(box_a_re.Text);//x1
+                double x2 = Convert.ToDouble(box_b_re.Text);//x2
+                double y1 = Convert.ToDouble(box_a_im.Text);//y1
+                double y2 = Convert.ToDouble(box_b_im.Text);//y2
+
+                double below = ((x2 * x2) - (y1 * y1));
+
+                //gets the methods
+                int method = get_methods();
+                switch (method)
+                {
+                    //++
+                    case 0:
+                        re = Convert.ToString(((x1*x2)+(y1*y2)) / below);
+                        im = Convert.ToString(((-x1*y2) + (y1*x2)) / below);
+                        if (Convert.ToDouble(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "+i" + (Convert.ToDouble(im) * 1000) / 1000);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "" + (Convert.ToDouble(im) * 1000) / 1000 + "i");
+                        }
+
+                        
+                        break;
+                    //--
+                    case 1:
+                        //(x1-y1i)*(x2-y2i)
+                        //Re: x1*x2 - y1*y2
+                        //Im: (-x1y2 - y1x2)i
+                        re = Convert.ToString((x1 * x2) - (y1 * y2));
+                        im = Convert.ToString(((-x1 * y2) - (y1 * x2)));
+                        if (Convert.ToInt32(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString(re + "+i" + im);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString(re + im + "i");
+                        }
+
+                        break;
+                    //-+
+                    case 2:
+                        //(x1-y1i)*(x2+y2i)
+                        //Re: x1*x2 + y1*y2
+                        //Im: (-x1y2 - y1x2)i
+                        re = Convert.ToString((x1 * x2) + (y1 * y2));
+                        im = Convert.ToString(((x1 * y2) - (y1 * x2)));
+                        if (Convert.ToInt32(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString(re + "+i" + im);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString(re + im + "i");
+                        }
+                        break;
+                    //+-
+                    case 3:
+                        //(x1+y1i)*(x2-y2i)
+                        //Re: x1*x2 - y1*y2
+                        //Im: (x1y2 + y1x2)i
+                        re = Convert.ToString((x1 * x2) - (y1 * y2));
+                        im = Convert.ToString(((x1 * y2) + (y1 * x2)));
+                        if (Convert.ToInt32(im) > 0)
+                        {
+                            box_result.Text = Convert.ToString(re + "+i" + im);
+                        }
+                        else
+                        {
+                            box_result.Text = Convert.ToString(re + im + "i");
+                        }
+                        break;
+                    case 4:
+                        MessageBox.Show("The switch function went to case 4", "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+            }
+            
 
             
 
