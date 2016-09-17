@@ -4,6 +4,7 @@
     {
         /// <summary>
         /// Required designer variable.
+        /// Program made by Silard Gal TM3 17/09/2016
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.box_a_re = new System.Windows.Forms.TextBox();
@@ -46,7 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.combo_a = new System.Windows.Forms.ComboBox();
             this.combo_b = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -175,7 +177,7 @@
             // 
             this.box_result.Location = new System.Drawing.Point(13, 24);
             this.box_result.Name = "box_result";
-            this.box_result.Size = new System.Drawing.Size(269, 20);
+            this.box_result.Size = new System.Drawing.Size(307, 20);
             this.box_result.TabIndex = 15;
             // 
             // label7
@@ -215,22 +217,22 @@
             this.combo_b.TabIndex = 18;
             this.combo_b.SelectedIndexChanged += new System.EventHandler(this.combo_b_SelectedIndexChanged);
             // 
-            // button1
+            // linkLabel1
             // 
-            this.button1.Location = new System.Drawing.Point(144, 275);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(3, 291);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(96, 13);
+            this.linkLabel1.TabIndex = 19;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Made by Silard Gal";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 310);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(346, 310);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.combo_b);
             this.Controls.Add(this.combo_a);
             this.Controls.Add(this.label7);
@@ -249,6 +251,9 @@
             this.Controls.Add(this.box_a_re);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Complex Calculator";
             this.ResumeLayout(false);
@@ -276,7 +281,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox combo_a;
         private System.Windows.Forms.ComboBox combo_b;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

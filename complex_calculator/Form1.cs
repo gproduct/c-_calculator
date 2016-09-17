@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace complex_calculator
 {
+
+    //en itt levezetett matek kepletet hasznalok de lehet a System.Numerics
+
     public partial class Form1 : Form
     {
         //variables
@@ -20,16 +23,16 @@ namespace complex_calculator
         public Form1()
         {
             InitializeComponent();
-            box_a_re.Text = "5";
-            box_b_re.Text = "20";
-            box_a_im.Text = "15";
-            box_b_im.Text = "18";
 
-            MessageBox.Show("https://github.com/gproduct/c-_calculator/", "GitHub code",
-            MessageBoxButtons.OK, MessageBoxIcon.None);
+            
             
         }
-
+            //basic error function
+            private void errorz()
+            {
+                MessageBox.Show("You didn't choose + or -", "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             //**************************************************************
             //functions for returning methods state
             //**************************************************************
@@ -110,7 +113,6 @@ namespace complex_calculator
                         }
                         break;
                     case 3:
-                        //do check for -
                         if ((_a_im - _b_im) < 0)
                         {
                             box_result.Text = Convert.ToString((_a_re + _b_re) + "" + (_a_im - _b_im) + "i");
@@ -121,13 +123,11 @@ namespace complex_calculator
                         }
                         break;
                     case 4:
-                        MessageBox.Show("The switch function went to case 4", "ERROR",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorz();
                         break;
                 }
             }
 
-            //works
             private void subs_Click(object sender, EventArgs e)
             {
                 //making it easier for the eyes
@@ -140,7 +140,7 @@ namespace complex_calculator
                 int method = get_methods();
                 switch (method)
                 {
-                    //works
+                  
                     case 0:
                         if ((_a_im - _b_im) < 0)
                         {
@@ -149,7 +149,7 @@ namespace complex_calculator
                             box_result.Text = Convert.ToString((_a_re - _b_re) + "+i" + (_a_im - _b_im));
                         }
                         break;
-                    //works
+                    
                     case 1:  
                         if ((-_a_im + _b_im) > 0)
                         {
@@ -161,7 +161,7 @@ namespace complex_calculator
                         }
                         
                         break;
-                    //works
+                    
                     case 2:
                         if ((-_a_im + _b_im) > 0)
                         {
@@ -172,13 +172,12 @@ namespace complex_calculator
                             box_result.Text = Convert.ToString((_a_re - _b_re) + "" + (-_a_im + _b_im) + "i");
                         }       
                         break;
-                    //works
+                    
                     case 3:
                         box_result.Text = Convert.ToString((_a_re - _b_re) + "+i" + (_a_im + _b_im));
                         break;
                     case 4:
-                        MessageBox.Show("The switch function went to case 4", "ERROR",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorz();
                         break;
                 }
             }
@@ -264,8 +263,7 @@ namespace complex_calculator
                         }
                         break;
                     case 4:
-                        MessageBox.Show("The switch function went to case 4", "ERROR",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorz();
                         break;
                 }
             }
@@ -282,7 +280,7 @@ namespace complex_calculator
                 double y1 = Convert.ToDouble(box_a_im.Text);//y1
                 double y2 = Convert.ToDouble(box_b_im.Text);//y2
 
-                double below = ((x2 * x2) - (y1 * y1));
+                double below = ((x2 * x2) + (y2 * y2));
 
                 //gets the methods
                 int method = get_methods();
@@ -294,73 +292,62 @@ namespace complex_calculator
                         im = Convert.ToString(((-x1*y2) + (y1*x2)) / below);
                         if (Convert.ToDouble(im) > 0)
                         {
-                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "+i" + (Convert.ToDouble(im) * 1000) / 1000);
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "+i" + (Math.Truncate(Convert.ToDouble(im) * 1000) / 1000));
                         }
                         else
                         {
-                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "" + (Convert.ToDouble(im) * 1000) / 1000 + "i");
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "" + (Math.Truncate(Convert.ToDouble(im) * 1000) / 1000) + "i");
                         }
 
                         
                         break;
                     //--
                     case 1:
-                        //(x1-y1i)*(x2-y2i)
-                        //Re: x1*x2 - y1*y2
-                        //Im: (-x1y2 - y1x2)i
-                        re = Convert.ToString((x1 * x2) - (y1 * y2));
-                        im = Convert.ToString(((-x1 * y2) - (y1 * x2)));
-                        if (Convert.ToInt32(im) > 0)
+                        re = Convert.ToString(((x1*x2)+(y1*y2)) / below);
+                        im = Convert.ToString(((x1*y2) - (y1*x2)) / below);
+                        if (Convert.ToDouble(im) > 0)
                         {
-                            box_result.Text = Convert.ToString(re + "+i" + im);
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "+i" + (Convert.ToDouble(im) * 1000) / 1000);
                         }
                         else
                         {
-                            box_result.Text = Convert.ToString(re + im + "i");
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "" + (Math.Truncate(Convert.ToDouble(im) * 1000) / 1000) + "i");
                         }
 
                         break;
                     //-+
                     case 2:
-                        //(x1-y1i)*(x2+y2i)
-                        //Re: x1*x2 + y1*y2
-                        //Im: (-x1y2 - y1x2)i
-                        re = Convert.ToString((x1 * x2) + (y1 * y2));
-                        im = Convert.ToString(((x1 * y2) - (y1 * x2)));
-                        if (Convert.ToInt32(im) > 0)
+                        re = Convert.ToString(((x1 * x2) - (y1 * y2)) / below);
+                        im = Convert.ToString(((-x1 * y2) - (y1 * x2)) / below);
+                        if (Convert.ToDouble(im) > 0)
                         {
-                            box_result.Text = Convert.ToString(re + "+i" + im);
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "+i" + (Convert.ToDouble(im) * 1000) / 1000);
                         }
                         else
                         {
-                            box_result.Text = Convert.ToString(re + im + "i");
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "" + (Math.Truncate(Convert.ToDouble(im) * 1000) / 1000) + "i");
                         }
+
                         break;
                     //+-
                     case 3:
-                        //(x1+y1i)*(x2-y2i)
-                        //Re: x1*x2 - y1*y2
-                        //Im: (x1y2 + y1x2)i
-                        re = Convert.ToString((x1 * x2) - (y1 * y2));
-                        im = Convert.ToString(((x1 * y2) + (y1 * x2)));
-                        if (Convert.ToInt32(im) > 0)
+                        re = Convert.ToString(((x1*x2)-(y1*y2)) / below);
+                        im = Convert.ToString(((x1*y2) + (y1*x2)) / below);
+                        if (Convert.ToDouble(im) > 0)
                         {
-                            box_result.Text = Convert.ToString(re + "+i" + im);
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "+i" + (Math.Truncate(Convert.ToDouble(im) * 1000) / 1000));
                         }
                         else
                         {
-                            box_result.Text = Convert.ToString(re + im + "i");
+                            box_result.Text = Convert.ToString((Math.Truncate(Convert.ToDouble(re) * 1000) / 1000) + "" + (Math.Truncate(Convert.ToDouble(im) * 1000) / 1000) + "i");
                         }
+
                         break;
                     case 4:
-                        MessageBox.Show("The switch function went to case 4", "ERROR",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorz();
                         break;
                 }
             }
-            
-
-            
 
 
             //**************************************************************
