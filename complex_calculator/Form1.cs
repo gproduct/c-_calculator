@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace complex_calculator
 {
 
-    //en itt levezetett matek kepletet hasznalok de lehet a System.Numerics
+    //we can use System.Numerics too 
 
     public partial class Form1 : Form
     {
@@ -75,10 +75,6 @@ namespace complex_calculator
                 
             }
             //**************************************************************
-            private void button1_Click(object sender, EventArgs e)
-            {
-                //box_result.Text = Convert.ToString(method_a) + " " + Convert.ToString(method_b);
-            }
 
 
             //**************************************************************
